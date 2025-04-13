@@ -1,0 +1,171 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-synergy-blue/10 selection:text-synergy-blue;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden font-sans;
+  }
+
+  .parallax-container {
+    @apply relative;
+    will-change: transform;
+  }
+
+  .parallax-layer {
+    position: relative;
+    will-change: transform;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-synergy-blue to-synergy-purple bg-clip-text text-transparent;
+  }
+
+  .gradient-border {
+    position: relative;
+    border-radius: theme('borderRadius.lg');
+    z-index: 0;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #0ea5e9, #8b5cf6);
+    border-radius: calc(theme('borderRadius.lg') + 2px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+
+  .data-grid {
+    background-image: linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Neural network grid animation */
+  .neural-grid {
+    @apply absolute inset-0 opacity-20;
+    background-image: radial-gradient(rgba(14, 165, 233, 0.2) 1px, transparent 1px),
+                      radial-gradient(rgba(139, 92, 246, 0.2) 1px, transparent 1px);
+    background-position: 0 0, 25px 25px;
+    background-size: 50px 50px;
+    z-index: -1;
+    animation: fadeIn 1s ease-out, pulse 15s infinite alternate;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+}
+
+@layer utilities {
+  /* Custom scroll bar */
+  .scrollbar-synergy::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-synergy::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .scrollbar-synergy::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #0ea5e9, #8b5cf6);
+    border-radius: 10px;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.3s ease;
+  }
+
+  .mask-image {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  }
+
+  .glowing {
+    box-shadow: 0 0 15px theme('colors.synergy.blue');
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 10px theme('colors.synergy.blue');
+  }
+
+  /* Text gradient animations */
+  .animated-gradient-text {
+    background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #0ea5e9);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: textShine 5s linear infinite;
+  }
+
+  @keyframes textShine {
+    to {
+      background-position: 200% center;
+    }
+  }
+}
+
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
