@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+const logo = "/logo_dark.PNG";
 
 const LoadingAnimation = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,7 @@ const LoadingAnimation = () => {
     <div className="fixed inset-0 flex items-center justify-center bg-background z-50">
       <div className="relative w-40 h-40">
         {/* Animated Neural Paths */}
-        <svg className="absolute inset-0" viewBox="0 0 100 100">
+        {/* <svg className="absolute inset-0" viewBox="0 0 100 100">
           <path
             d="M10,50 Q30,30 50,50 T90,50"
             fill="none"
@@ -49,13 +50,14 @@ const LoadingAnimation = () => {
             className="animate-neural-path"
             style={{ animationDelay: '0.6s' }}
           />
-        </svg>
+        </svg> */}
         
         {/* Logo */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 animate-fade-in" style={{ animationDelay: '1s' }}>
           <div className="text-2xl font-bold">
-            <span className="text-evolvair-blue">Evolv</span>
-            <span className="text-evolvair-purple">air</span>
+            {/* <span className="text-evolvair-blue">Evolv</span>
+            <span className="text-evolvair-purple">air</span> */}
+            <img src={logo} alt="logo"  className="mix-blend-multiply"/>
           </div>
         </div>
       </div>

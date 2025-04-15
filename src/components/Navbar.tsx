@@ -1,7 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+
+const logo = "/logo_dark.PNG";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,11 +30,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="flex items-center">
-              <span className="text-xl md:text-2xl font-bold">
-                <span className="text-evolvair-blue">Evolv</span>
-                <span className="text-evolvair-purple">air</span>
-              </span>
+            <a href="/" className="flex items-center">
+              <img
+                src={logo}
+                alt="logo"
+                className="h-10 w-auto md:h-12"
+              />
             </a>
           </div>
 

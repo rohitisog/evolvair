@@ -28,10 +28,10 @@ const About = () => {
   }, []);
 
   const statistics = [
-    { icon: <Award size={24} />, value: "5+", label: "Years Experience" },
-    { icon: <Users size={24} />, value: "100+", label: "Happy Clients" },
-    { icon: <Globe size={24} />, value: "15+", label: "Countries Served" },
-    { icon: <Code size={24} />, value: "250+", label: "AI Projects" }
+    { icon: <Award size={24} />, value: "2+", label: "Years Experience" },
+    { icon: <Users size={24} />, value: "20+", label: "Happy Clients" },
+    { icon: <Globe size={24} />, value: "50+", label: "AI Tools" },
+    { icon: <Code size={24} />, value: "40+", label: "AI Projects" }
   ];
 
   return (
